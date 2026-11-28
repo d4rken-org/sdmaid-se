@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.DeletedPathsListener
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.SwiperSessionCreator
 import eu.darken.sdmse.common.flow.replayingShare
@@ -61,6 +62,7 @@ class Swiper @Inject constructor(
     private val sessionDao: SwipeSessionDao,
     private val itemDao: SwipeItemDao,
     private val upgradeRepo: UpgradeRepo,
+    private val deletedPathsListener: DeletedPathsListener,
 ) : SDMTool, Progress.Client, SwiperSessionCreator {
 
     override val type: SDMTool.Type = SDMTool.Type.SWIPER
@@ -230,6 +232,7 @@ class Swiper @Inject constructor(
             }
             deletedSize = result.deletedSize
             deletedPaths = result.deletedPaths
+            if (deletedPaths.isNotEmpty()) deletedPathsListener.onPathsDeleted(deletedPaths)
         }
 
         // Count items being processed before removing them

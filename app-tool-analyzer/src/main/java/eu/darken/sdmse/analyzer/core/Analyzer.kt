@@ -14,6 +14,7 @@ import eu.darken.sdmse.analyzer.core.storage.AppDeepScanTask
 import eu.darken.sdmse.analyzer.core.storage.StorageScanTask
 import eu.darken.sdmse.analyzer.core.storage.SystemDeepScanTask
 import eu.darken.sdmse.analyzer.core.storage.StorageScanner
+import eu.darken.sdmse.analyzer.core.storage.findContent
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.ContentCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.MediaCategory
@@ -33,6 +34,8 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathAncestorIndex
+import eu.darken.sdmse.common.files.DeletedPathsListener
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.MediaStoreTool
 import eu.darken.sdmse.common.files.delete
@@ -40,6 +43,7 @@ import eu.darken.sdmse.common.files.filterDistinctRoots
 import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.matches
+import eu.darken.sdmse.common.files.saf.SAFPath
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.progress.Progress
@@ -48,6 +52,7 @@ import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
+import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.setup.IncompleteSetupException
@@ -66,6 +71,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
@@ -86,7 +92,8 @@ class Analyzer @Inject constructor(
     @SetupBinding(SetupModule.Type.STORAGE) private val storageSetupModule: SetupModule,
     private val mediaStoreTool: MediaStoreTool,
     private val spaceTracker: SpaceTracker,
-) : SDMTool, Progress.Client {
+    private val pathMapper: PathMapper,
+) : SDMTool, Progress.Client, DeletedPathsListener {
 
     override val type: SDMTool.Type = SDMTool.Type.ANALYZER
 
@@ -355,80 +362,228 @@ class Analyzer @Inject constructor(
             }
         }
 
+        publishContentChanges(
+            listOf(
+                StorageContentChange(
+                    storageId = task.storageId,
+                    replacements = listOf(oldCategory to newCategory),
+                    groupSizeDelta = oldGroup.groupSize - newGroup.groupSize,
+                ),
+            ),
+        )
+
+        return freedSpace
+    }
+
+    /**
+     * One storage's part of a content change. [groupSizeDelta] is how much the replaced groups shrank, the
+     * free-space fallback when the re-read fails. It's the group-size delta, not a flat sum of item sizes, so the
+     * storage card moves by exactly what the category cards moved by. The two differ for entries whose
+     * ContentItem.size is null but whose itemSize is not (symlinks and other non-file/dir types).
+     */
+    private class StorageContentChange(
+        val storageId: StorageId,
+        val replacements: List<Pair<ContentCategory, ContentCategory>>,
+        val groupSizeDelta: Long,
+    )
+
+    /**
+     * Publishes [changes] as one atomic update: replaced categories, refreshed free space of each affected storage
+     * and a recomputed system residual.
+     */
+    private suspend fun publishContentChanges(changes: Collection<StorageContentChange>) {
         // The authoritative numbers: what the filesystem reports as capacity and free space now. Called
         // plainly, not through withProgress(), so it doesn't disturb the delete's own progress.
-        val refreshed: DeviceStorage? = try {
-            deviceScanner.get().scan().firstOrNull { it.id == task.storageId }
+        val refreshed: Set<DeviceStorage>? = try {
+            deviceScanner.get().scan()
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            log(TAG, WARN) { "applyDeletion(): free-space re-read failed, using accounted delta: ${e.asLog()}" }
+            log(TAG, WARN) { "publishContentChanges(): free-space re-read failed, using accounted delta: ${e.asLog()}" }
             null
         }
 
-        // Fallback uses the group-size delta, not the flat `freedSpace` sum, so the storage card moves by
-        // exactly what the category card moved by. The two differ for entries whose ContentItem.size is null
-        // but whose itemSize is not (symlinks and other non-file/dir types).
-        val groupSizeDelta = oldGroup.groupSize - newGroup.groupSize
-
         coreState.update { state ->
-            val newStorage = state.storages.singleOrNull { it.id == task.storageId }?.let { oldStorage ->
-                when {
-                    // spaceUsed is capacity minus free, so both have to come from the same measurement.
-                    // DeviceStorageScanner can fall back from StorageStatsManager2 to the File API between
-                    // two scans, and those measure different things (whole disk vs data partition) - pairing
-                    // a refreshed free value with the cached capacity would move used space by gigabytes.
-                    // setupIncomplete stays as cached: it says whether the published categories may be
-                    // permission-limited, and a space re-read doesn't rebuild them. scanStorageDevices()
-                    // owns that transition.
-                    refreshed != null -> oldStorage.copy(
-                        spaceCapacity = refreshed.spaceCapacity,
-                        spaceFree = refreshed.spaceFree,
-                    )
+            var storages = state.storages
+            val categories = state.categories.mutate {
+                changes.forEach { change ->
+                    val newStorage = state.storages.singleOrNull { it.id == change.storageId }?.let { oldStorage ->
+                        val fresh = refreshed?.firstOrNull { it.id == change.storageId }
+                        when {
+                            // spaceUsed is capacity minus free, so both have to come from the same measurement.
+                            // DeviceStorageScanner can fall back from StorageStatsManager2 to the File API between
+                            // two scans, and those measure different things (whole disk vs data partition) - pairing
+                            // a refreshed free value with the cached capacity would move used space by gigabytes.
+                            // setupIncomplete stays as cached: it says whether the published categories may be
+                            // permission-limited, and a space re-read doesn't rebuild them. scanStorageDevices()
+                            // owns that transition.
+                            fresh != null -> oldStorage.copy(
+                                spaceCapacity = fresh.spaceCapacity,
+                                spaceFree = fresh.spaceFree,
+                            )
 
-                    else -> {
-                        // Clamped against remaining capacity headroom, so the addition can neither overflow
-                        // Long nor push free space beyond the storage's capacity.
-                        val headroom = (oldStorage.spaceCapacity - oldStorage.spaceFree).coerceAtLeast(0L)
-                        oldStorage.copy(spaceFree = oldStorage.spaceFree + groupSizeDelta.coerceIn(0L, headroom))
+                            else -> {
+                                // Clamped against remaining capacity headroom, so the addition can neither overflow
+                                // Long nor push free space beyond the storage's capacity.
+                                val headroom = (oldStorage.spaceCapacity - oldStorage.spaceFree).coerceAtLeast(0L)
+                                oldStorage.copy(
+                                    spaceFree = oldStorage.spaceFree + change.groupSizeDelta.coerceIn(0L, headroom),
+                                )
+                            }
+                        }
+                    }
+
+                    val updatedCategories = change.replacements
+                        .fold(this[change.storageId]!!) { acc, (old, new) -> acc.minus(old).plus(new) }
+
+                    // SystemCategory.spaceUsedOverride is a scan-time residual (used bytes minus apps/media/other
+                    // users), so it goes stale the moment the device's used bytes change.
+                    this[change.storageId] = when {
+                        newStorage == null -> updatedCategories
+                        else -> updatedCategories.map { category ->
+                            if (category !is SystemCategory || category.spaceUsedOverride == null) return@map category
+                            category.copy(
+                                spaceUsedOverride = StorageScanner.computeResidual(
+                                    spaceUsed = newStorage.spaceUsed,
+                                    apps = updatedCategories.filterIsInstance<AppCategory>().sumOf { it.spaceUsed },
+                                    media = updatedCategories.filterIsInstance<MediaCategory>().sumOf { it.spaceUsed },
+                                    otherUsers = updatedCategories
+                                        .filterIsInstance<OtherUsersCategory>()
+                                        .sumOf { it.spaceUsed },
+                                ),
+                            )
+                        }
+                    }
+
+                    // A delete never adds or removes storages, it only refreshes the affected ones' free space.
+                    if (newStorage != null) {
+                        storages = storages.map { if (it.id == newStorage.id) newStorage else it }.toSet()
                     }
                 }
             }
 
-            val updatedCategories = state.categories[task.storageId]!!.minus(oldCategory).plus(newCategory)
+            state.copy(
+                storages = storages,
+                categories = categories,
+            )
+        }
+    }
 
-            // SystemCategory.spaceUsedOverride is a scan-time residual (used bytes minus apps/media/other
-            // users), so it goes stale the moment the device's used bytes change.
-            val finalCategories = when {
-                newStorage == null -> updatedCategories
-                else -> updatedCategories.map { category ->
-                    if (category !is SystemCategory || category.spaceUsedOverride == null) return@map category
-                    category.copy(
-                        spaceUsedOverride = StorageScanner.computeResidual(
-                            spaceUsed = newStorage.spaceUsed,
-                            apps = updatedCategories.filterIsInstance<AppCategory>().sumOf { it.spaceUsed },
-                            media = updatedCategories.filterIsInstance<MediaCategory>().sumOf { it.spaceUsed },
-                            otherUsers = updatedCategories
-                                .filterIsInstance<OtherUsersCategory>()
-                                .sumOf { it.spaceUsed },
-                        ),
-                    )
-                }
+    /**
+     * Another tool deleted [paths]. Drops them from the cached scan result so open views update in place.
+     * Runs detached: the caller is inside its own task and mustn't wait for ours.
+     */
+    override fun onPathsDeleted(paths: Set<APath>) {
+        if (paths.isEmpty()) return
+        log(TAG) { "onPathsDeleted(): ${paths.size} paths" }
+        appScope.launch {
+            try {
+                pruneDeleted(paths)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // appScope has no exception handler, anything escaping here would kill the process.
+                log(TAG, ERROR) { "Dropping deleted paths from cached data failed: ${e.asLog()}" }
+            }
+        }
+    }
+
+    internal suspend fun pruneDeleted(paths: Set<APath>): Unit = jobLock.withLock {
+        keepResourceHoldersAlive(gatewaySwitch) {
+            pruneCachedContent(paths)
+        }
+    }
+
+    private suspend fun pruneCachedContent(paths: Set<APath>) {
+        val cached = coreState.value.categories
+        if (cached.isEmpty()) {
+            log(TAG, VERBOSE) { "pruneCachedContent(): Nothing cached" }
+            return
+        }
+
+        // Cached items and deleted paths can be of different types for the same file, and path matching is
+        // false across types. Cached paths are left as they are.
+        val deleted = APathAncestorIndex<APath> { it }
+        paths.forEach { path ->
+            deleted.add(path)
+            val counterpart = when (path) {
+                is SAFPath -> pathMapper.toLocalPath(path)
+                is LocalPath -> pathMapper.toSAFPath(path)
+                else -> null
+            }
+            counterpart?.let { deleted.add(it) }
+        }
+
+        val changes = cached.mapNotNull { (storageId, categories) ->
+            var groupSizeDelta = 0L
+            fun ContentGroup?.pruned(): ContentGroup? {
+                val old = this ?: return null
+                val new = old.prunedBy(deleted) ?: return null
+                groupSizeDelta += old.groupSize - new.groupSize
+                return new
             }
 
-            state.copy(
-                storages = when {
-                    // A delete never adds or removes storages, it only refreshes the target's free space.
-                    newStorage == null -> state.storages
-                    else -> state.storages.map { if (it.id == newStorage.id) newStorage else it }.toSet()
-                },
-                categories = state.categories.mutate {
-                    this[task.storageId] = finalCategories
-                },
+            val replacements = categories.mapNotNull { category ->
+                val newCategory = when (category) {
+                    is AppCategory -> {
+                        var changed = false
+                        val newPkgStats = category.pkgStats.mapValues { (_, pkg) ->
+                            val appCode = pkg.appCode.pruned()
+                            val appData = pkg.appData.pruned()
+                            val appMedia = pkg.appMedia.pruned()
+                            val extraData = pkg.extraData.pruned()
+                            if (appCode == null && appData == null && appMedia == null && extraData == null) {
+                                return@mapValues pkg
+                            }
+                            changed = true
+                            pkg.copy(
+                                appCode = appCode ?: pkg.appCode,
+                                appData = appData ?: pkg.appData,
+                                appMedia = appMedia ?: pkg.appMedia,
+                                extraData = extraData ?: pkg.extraData,
+                            )
+                        }
+                        if (changed) category.copy(pkgStats = newPkgStats) else null
+                    }
+
+                    is MediaCategory -> {
+                        var changed = false
+                        val newGroups = category.groups.map { group ->
+                            group.pruned()?.also { changed = true } ?: group
+                        }
+                        if (changed) category.copy(groups = newGroups) else null
+                    }
+
+                    is SystemCategory, is OtherUsersCategory -> null
+                }
+                newCategory?.let { category to it }
+            }
+
+            if (replacements.isEmpty()) return@mapNotNull null
+            StorageContentChange(
+                storageId = storageId,
+                replacements = replacements,
+                groupSizeDelta = groupSizeDelta,
             )
         }
 
-        return freedSpace
+        if (changes.isEmpty()) {
+            log(TAG, VERBOSE) { "pruneCachedContent(): No cached content matched" }
+            return
+        }
+
+        log(TAG, INFO) { "pruneCachedContent(): Pruning ${paths.size} deleted paths from ${changes.size} storages" }
+        publishContentChanges(changes)
+    }
+
+    /** A copy without the items [deleted] covers, keeping the group's id, or null if it covers none. */
+    private fun ContentGroup.prunedBy(deleted: APathAncestorIndex<APath>): ContentGroup? {
+        if (contents.findContent { deleted.hasAncestorOrMatchOf(it.path) } == null) return null
+        val remaining = contents
+            .toFlatContent()
+            .filterNot { deleted.hasAncestorOrMatchOf(it.path) }
+            .toNestedContent()
+        return copy(contents = remaining)
     }
 
     private suspend fun deepScanApp(task: AppDeepScanTask): AppDeepScanTask.Result {
@@ -535,6 +690,7 @@ class Analyzer @Inject constructor(
     @Module
     abstract class DIM {
         @Binds @IntoSet abstract fun mod(mod: Analyzer): SDMTool
+        @Binds abstract fun deletedPathsListener(mod: Analyzer): DeletedPathsListener
     }
 
     companion object {

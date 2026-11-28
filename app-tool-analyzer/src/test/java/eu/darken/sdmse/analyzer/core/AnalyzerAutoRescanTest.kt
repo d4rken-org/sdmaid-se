@@ -85,6 +85,7 @@ class AnalyzerAutoRescanTest : BaseTest() {
             storageSetupModule = mockk { every { state } returns setupState },
             mediaStoreTool = mockk<MediaStoreTool>(relaxed = true),
             spaceTracker = mockk<SpaceTracker>(relaxed = true),
+            pathMapper = mockk(relaxed = true),
         )
         return Harness(analyzer, appScope, uncaught)
     }
